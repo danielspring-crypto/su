@@ -2,10 +2,30 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from .models import Item,Transaction,Client
+from .models import Item, Transaction,Client
 from django.shortcuts import render,get_object_or_404
 from django import forms
 
+def pie_chart(request):
+	labels = []
+	data = []
+
+	queryset = Item.objects.all()
+	for item in queryset:
+		labels.append(item.name)
+		data.append(item.quantity)
+
+	return render(request, 'chart.html', {'labels':labels, 'data':data,})
+
+def pie_chart2(request):
+	labels = []
+	data = []
+
+	queryset = Transaction.objects.all()
+	for item in queryset:
+		labels.append(item.quantity)
+		data.append(item.item)
+	return render(request, 'chart2.html', {'tlabels':labels, 'tdata':data,})
 
 def index(request):
 	items_list=Item.objects.all()

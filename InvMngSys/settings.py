@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'Inventory.apps.SuitConfig',
+    # 'Inventory.apps.SuitConfig',
     'Inventory.apps.InventoryConfig',
     'django.contrib.admin',
     'django.contrib.auth',
